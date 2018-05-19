@@ -10,8 +10,8 @@ ARG VCS_REF
 LABEL org.label-schema.name = "LogitechMediaServer" \
       org.label-schema.description = "Debian based Logitech Media Server Docker image" \
       org.label-schema.vendor = "Paul NOBECOURT <paul.nobecourt@orange.fr>" \
-      org.label-schema.url="https://github.com/pnobecourt/" \
-      org.label-schema.version=$VERSION \
+      org.label-schema.url = "https://github.com/pnobecourt/" \
+      org.label-schema.version = $VERSION \
       org.label-schema.build-date = $BUILD_DATE \
       org.label-schema.vcs-url = "https://github.com/pnobecourt/docker-logitechmediaserver.git" \
       org.label-schema.vcs-ref = $VCS_REF \
