@@ -79,9 +79,6 @@ RUN url=$(curl "$PACKAGE_VERSION_URL" | sed 's/_all\.deb/_amd64\.deb/') && \
            /var/lib/apt/lists/* \
            /var/tmp/*
 
-# Volumes
-VOLUME ["/srv/squeezebox/prefs","/srv/squeezebox/logs","/srv/squeezebox/cache","/var/log/supervisor"]
-    
 # Ports configuration
 EXPOSE 3483 3483/udp 5353 5353/udp 9000 9005 9010 9090
 
