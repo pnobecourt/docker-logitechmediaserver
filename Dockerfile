@@ -7,15 +7,15 @@ ARG BUILD_DATE
 ARG VCS_REF
 
 # Labels
-LABEL org.label-schema.name = "LogitechMediaServer" \
-      org.label-schema.description = "Debian based Logitech Media Server Docker image" \
-      org.label-schema.vendor = "Paul NOBECOURT <paul.nobecourt@orange.fr>" \
-      org.label-schema.url = "https://github.com/pnobecourt/" \
-      org.label-schema.version = $VERSION \
-      org.label-schema.build-date = $BUILD_DATE \
-      org.label-schema.vcs-url = "https://github.com/pnobecourt/docker-logitechmediaserver" \
-      org.label-schema.vcs-ref = $VCS_REF \
-      org.label-schema.schema-version = "1.0"
+LABEL org.label-schema.name="LogitechMediaServer" \
+      org.label-schema.description="Debian based Logitech Media Server Docker image" \
+      org.label-schema.vendor="Paul NOBECOURT <paul.nobecourt@orange.fr>" \
+      org.label-schema.url="https://github.com/pnobecourt/" \
+      org.label-schema.version=$VERSION \
+      org.label-schema.build-date=$BUILD_DATE \
+      org.label-schema.vcs-url="https://github.com/pnobecourt/docker-logitechmediaserver" \
+      org.label-schema.vcs-ref=$VCS_REF \
+      org.label-schema.schema-version="1.0"
 
 # Define the ENV variable for creating docker image
 ENV LANG C.UTF-8
