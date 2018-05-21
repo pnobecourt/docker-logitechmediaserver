@@ -34,16 +34,16 @@ RUN echo "deb http://www.deb-multimedia.org stretch main non-free" | tee -a /etc
            /var/lib/apt/lists/* \
            /var/tmp/*
 
-# Install supervisor and copy it's configuration file
+# Install gosu, supervisor and copy supervisor's configuration file
 RUN apt-get update && \
-    apt-get install -y supervisor && \
-    mkdir -p /var/log/supervisor && \
+    apt-get install -y gosu supervisor && \
     apt-get clean && \
     rm -rf \
            /tmp/* \
            /var/lib/apt/lists/* \
            /var/tmp/*
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY supervisord/supervisord.conf /etc/supervisor/supervisord.conf
+COPY supervisord/squeezeboxserver.conf /etc/supervisor/conf.d/squeezeboxserver.conf
 
 # Install LogitechMediaServer_DEPENDENCIES
 RUN apt-get update && \
@@ -85,4 +85,4 @@ RUN url=$(curl "$PACKAGE_VERSION_URL" | sed 's/_all\.deb/_amd64\.deb/') && \
 EXPOSE 3483 3483/udp 5353 5353/udp 9000 9005 9010 9090
 
 # Start PGM
-CMD ["/usr/bin/supervisord","-c","/etc/supervisor/conf.d/supervisord.conf"]
+CMD ["/usr/bin/supervisord","-c","/etc/supervisor/supervisord.conf"]
