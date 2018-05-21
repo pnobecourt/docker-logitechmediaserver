@@ -20,6 +20,8 @@ LABEL org.label-schema.name="LogitechMediaServer" \
 # Define the ENV variable for creating docker image
 ENV LANG C.UTF-8
 ENV DEBIAN_FRONTEND noninteractive
+ENV SHELL=/bin/bash
+ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 ENV PACKAGE_VERSION_URL=http://www.mysqueezebox.com/update/?version=7.9.1&revision=1&geturl=1&os=deb
 
 # Install additional repositories
