@@ -23,6 +23,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV SHELL=/bin/bash
 ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 ENV PACKAGE_VERSION_URL=http://www.mysqueezebox.com/update/?version=7.9.1&revision=1&geturl=1&os=deb
+ENV SQUEEZE_VOL=/var/lib/squeezeboxserver
 
 # Install additional repositories
 RUN echo "deb http://www.deb-multimedia.org stretch main non-free" | tee -a /etc/apt/sources.list.d/debian-multimedia.list && \
@@ -75,6 +76,7 @@ RUN url=$(curl "$PACKAGE_VERSION_URL" | sed 's/_all\.deb/_amd64\.deb/') && \
     curl -Lsf -o /tmp/logitechmediaserver.deb $url && \
     dpkg -i /tmp/logitechmediaserver.deb && \
     apt-get -f -y install && \
+    userdel squeezeboxserver && \
     apt-get clean && \
     rm -rf \
            /tmp/* \
@@ -85,4 +87,6 @@ RUN url=$(curl "$PACKAGE_VERSION_URL" | sed 's/_all\.deb/_amd64\.deb/') && \
 EXPOSE 3483 3483/udp 5353 5353/udp 9000 9005 9010 9090
 
 # Start PGM
-CMD ["/usr/bin/supervisord","-c","/etc/supervisor/supervisord.conf"]
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+CMD ["/entrypoint.sh"]
