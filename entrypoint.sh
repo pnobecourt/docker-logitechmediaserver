@@ -9,13 +9,16 @@ groupadd -g $SGID squeezeboxserver
 useradd -u $SUID -g $SGID -d /usr/share/squeezeboxserver/	-c 'Logitech Media Server' squeezeboxserver
 
 # Check that squeezebox folders exist, then create them
-if [ "$SQUEEZE_VOL" ] && [ -d "$SQUEEZE_VOL" ]; then
-	for subdir in prefs logs cache; do
-		mkdir -p $SQUEEZE_VOL/$subdir
-	done
-fi
+#if [ "$SQUEEZE_VOL" ] && [ -d "$SQUEEZE_VOL" ]; then
+#	for subdir in prefs logs cache; do
+#		mkdir -p $SQUEEZE_VOL/$subdir
+#	done
+#fi
+for subdir in prefs logs cache; do
+	mkdir -p $SQUEEZE_VOL/$subdir
+done
 
-# Chown squeezebox folders and chmod them
+# Chown squeezebox folders
 chown -R squeezeboxserver:squeezeboxserver $SQUEEZE_VOL
 
 # Run supervisord

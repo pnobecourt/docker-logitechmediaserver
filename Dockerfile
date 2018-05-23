@@ -58,9 +58,11 @@ RUN apt-get update && \
                     libcrypt-openssl-rsa-perl \
                     libio-socket-inet6-perl \
                     libio-socket-ssl-perl \
+                    libmoosex-role-timer-perl \
                     libwww-perl \ 
                     locales \
                     perl \
+                    perl-base \
                     sox \
                     wavpack \
                     wget \
