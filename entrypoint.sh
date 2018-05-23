@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/bin/sh
 
 # Set $SUID and $SGID to 1000, if not already set
-: "${SUID:=1000}"
-: "${SGID:=1000}"
+: ${SUID:=1000}
+: ${SGID:=1000}
 
 # Create squeezeboxserver user and group
 groupadd -g $SGID squeezeboxserver
