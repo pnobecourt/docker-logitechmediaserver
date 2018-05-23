@@ -23,7 +23,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV SHELL=/bin/bash
 ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 ENV PACKAGE_VERSION_URL=http://www.mysqueezebox.com/update/?version=7.9.1&revision=1&geturl=1&os=deb
-ENV SQUEEZE_VOL=/var/lib/squeezeboxserver
+ENV SQUEEZE_VOL=/home/squeezeboxserver/squeezebox
 
 # Install additional repositories
 RUN echo "deb http://www.deb-multimedia.org stretch main non-free" | tee -a /etc/apt/sources.list.d/debian-multimedia.list && \
