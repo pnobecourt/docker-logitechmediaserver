@@ -1,12 +1,12 @@
 #!/bin/sh
 
 # Set $SUID and $SGID to 1000, if not already set
-: ${SUID:=1000}
-: ${SGID:=1000}
+#: ${SUID:=1000}
+#: ${SGID:=1000}
 
 # Create squeezeboxserver user and group
-groupadd -g $SGID squeezeboxserver
-useradd -u $SUID -g $SGID -d /usr/share/squeezeboxserver/ -c 'Logitech Media Server' squeezeboxserver
+groupadd -g 1000 squeezeboxserver
+useradd -u 1000 -g 1000 -d /usr/share/squeezeboxserver/ -c 'Logitech Media Server' squeezeboxserver
 
 # Check that squeezebox folders exist, then create them
 if [ "$SQUEEZE_VOL" ] && [ -d "$SQUEEZE_VOL" ]; then
