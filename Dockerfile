@@ -78,12 +78,14 @@ RUN url=$(curl "$PACKAGE_VERSION_URL" | sed 's/_all\.deb/_amd64\.deb/') && \
     curl -Lsf -o /tmp/logitechmediaserver.deb $url && \
     dpkg -i /tmp/logitechmediaserver.deb && \
     apt-get -f -y install && \
-    userdel squeezeboxserver && \
     apt-get clean && \
     rm -rf \
            /tmp/* \
            /var/lib/apt/lists/* \
            /var/tmp/*
+
+# squeezeboxserver system user deletion, will be re-created by entrypoint
+RUN userdel squeezeboxserver
 
 # Ports configuration
 EXPOSE 3483 3483/udp 5353 5353/udp 9000 9005 9010 9090
