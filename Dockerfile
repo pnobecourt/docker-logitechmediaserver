@@ -1,5 +1,5 @@
 # Download base image
-FROM debian:stretch
+FROM debian:latest
 
 # Define the ARG variables for creating docker image
 ARG VERSION
