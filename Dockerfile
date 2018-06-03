@@ -19,9 +19,9 @@ LABEL org.label-schema.name="LogitechMediaServer" \
       org.label-schema.schema-version="1.0"
 
 # Define the ENV variable for creating docker image
-# Define the ENV variable for creating docker image
 ENV LANG=C.UTF-8 \
 DEBIAN_FRONTEND=noninteractive \
+SHELL=/bin/bash \
 TERM=xterm \
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin \
 PS1=$(whoami)@$(hostname):$(pwd)$ \

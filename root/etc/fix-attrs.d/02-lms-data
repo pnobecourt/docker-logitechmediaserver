@@ -1,1 +1,1 @@
-/srv/squeezebox true dockeruser:dockeruser,$PUID:$PGID 0644 0755
+/srv/apps/squeezebox true dockeruser:dockeruser,$PUID:$PGID 0644 0755
