@@ -25,7 +25,7 @@ DEBIAN_FRONTEND=noninteractive \
 TERM=xterm \
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin \
 PS1=$(whoami)@$(hostname):$(pwd)$ \
-SQUEEZE_VOL=/srv/squeezebox
+SQUEEZE_VOL=/srv/apps/squeezebox
 
 # LogitechMediaServer installation
 RUN echo "deb http://www.deb-multimedia.org stretch main non-free" | tee -a /etc/apt/sources.list.d/debian-multimedia.list && \
