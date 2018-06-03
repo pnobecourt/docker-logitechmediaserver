@@ -1,7 +1,7 @@
 #!/usr/bin/with-contenv bash
 
 # Check that squeezebox folders exist, then create them
-for subdir in prefs logs cache playlist; do
+for subdir in prefs logs cache playlists; do
     if [ -d "$SQUEEZE_VOL/$subdir" ];then
         echo "Le dossier $SQUEEZE_VOL/$subdir existe déjà";
     else
@@ -11,4 +11,4 @@ for subdir in prefs logs cache playlist; do
 done
 
 # Fix permissions
-chown -R dockeruser:dockergroup $SQUEEZE_VOL
+chown -R dockeruser:dockeruser $SQUEEZE_VOL

@@ -1,1 +1,1 @@
-/usr/share/squeezeboxserver true dockeruser:dockergroup,$PUID:$PGID 0644 0755
+/usr/share/squeezeboxserver true dockeruser:dockeruser,$PUID:$PGID 0644 0755
