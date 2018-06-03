@@ -1,9 +1,5 @@
 #!/usr/bin/with-contenv bash
 
-# Create squeezeboxserver user and group
-groupadd -g $S_GID squeezeboxserver
-useradd -o -u $S_UID -g $S_GID -m -d $SQUEEZE_VOL -c 'Logitech Media Server' squeezeboxserver
-
 # Check that squeezebox folders exist, then create them
 for subdir in prefs logs cache playlist; do
     if [ -d "$SQUEEZE_VOL/$subdir" ];then
@@ -15,4 +11,4 @@ for subdir in prefs logs cache playlist; do
 done
 
 # Fix permissions
-chown -R squeezeboxserver:squeezeboxserver $SQUEEZE_VOL
+chown -R dockeruser:dockergroup $SQUEEZE_VOL
