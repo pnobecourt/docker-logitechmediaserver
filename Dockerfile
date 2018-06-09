@@ -1,7 +1,7 @@
 # Download base image
 FROM barbak/debian-s6:latest
 
-# Define the ARG variables for creating docker image
+# Define the ARG variables
 ARG VERSION
 ARG BUILD_DATE
 ARG VCS_REF
@@ -9,7 +9,7 @@ ARG PACKAGE_VERSION_URL=http://www.mysqueezebox.com/update/?version=7.9.1&revisi
 
 # Labels
 LABEL org.label-schema.name="LogitechMediaServer" \
-      org.label-schema.description="Logitech Media Server Docker image" \
+      org.label-schema.description="Debian based Logitech Media Server Docker image" \
       org.label-schema.vendor="Paul NOBECOURT <paul.nobecourt@orange.fr>" \
       org.label-schema.url="https://github.com/pnobecourt/" \
       org.label-schema.version=$VERSION \
@@ -18,14 +18,8 @@ LABEL org.label-schema.name="LogitechMediaServer" \
       org.label-schema.vcs-ref=$VCS_REF \
       org.label-schema.schema-version="1.0"
 
-# Define the ENV variable for creating docker image
-ENV LANG=C.UTF-8 \
-DEBIAN_FRONTEND=noninteractive \
-SHELL=/bin/bash \
-TERM=xterm \
-PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin \
-PS1=$(whoami)@$(hostname):$(pwd)$ \
-SQUEEZE_VOL=/srv/apps/squeezebox
+# Define the ENV variables
+ENV SQUEEZE_VOL=/srv/apps/squeezebox
 
 # LogitechMediaServer installation
 RUN echo "deb http://www.deb-multimedia.org stretch main non-free" | tee -a /etc/apt/sources.list.d/debian-multimedia.list && \
@@ -69,6 +63,9 @@ RUN echo "deb http://www.deb-multimedia.org stretch main non-free" | tee -a /etc
 
 # Add files
 ADD /root /
+
+# Define Volumes
+VOLUME [ "/srv/squeezebox/prefs","/srv/squeezebox/logs","/srv/squeezebox/cache","/srv/playlists" ]
 
 # Ports configuration
 EXPOSE 3483 3483/udp 5353 5353/udp 9000 9005 9010 9090
