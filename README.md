@@ -1,6 +1,6 @@
 # logitechmediaserver
 
-This is a Debian-based Logitech Media Server Docker image.
+This is a Debian based Logitech Media Server Docker image.
 
 Create workdirs :
 
@@ -28,8 +28,8 @@ Create container :
                -v /path/to/your/squeezebox/volume/squeeze/cache:/srv/squeezebox/cache:rw \
                -v /path/to/your/squeezebox/volume/playlists:/srv/playlists:rw \
                -v <audio-dir>:/your/music/dir:ro \ # you can add multiple audio dirs if you want, just add another -v <audio-dir-n>:/another/audio/dir:ro
-               -e "SUID=<your-uid>"
-               -e "SGID=<your-gid>"
+               -e "PUID=<your-uid>"
+               -e "PGID=<your-gid>"
                barbak/logitechmediaserver
 
 Or docker-compose :
@@ -60,8 +60,8 @@ Or docker-compose :
                 - /srv/docker/volumes/logitechmediaserver/squeezebox/playlists:/srv/playlists
                 - <audio-dir>:/your/music/dir:ro
             environment:
-                - SUID=<your-uid>
-                - SGID=<your-gid>
+                - PUID=<your-uid>
+                - PGID=<your-gid>
                 
 The web interface runs on port 9000.
 

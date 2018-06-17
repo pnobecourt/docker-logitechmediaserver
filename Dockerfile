@@ -5,7 +5,8 @@ FROM barbak/debian-s6:latest
 ARG VERSION
 ARG BUILD_DATE
 ARG VCS_REF
-ARG PACKAGE_VERSION_URL=http://www.mysqueezebox.com/update/?version=7.9.1&revision=1&geturl=1&os=deb
+ARG PACKAGE_VERSION 7.9.2
+ARG PACKAGE_VERSION_URL=http://www.mysqueezebox.com/update/?version=$PACKAGE_VERSION&revision=1&geturl=1&os=deb
 
 # Labels
 LABEL org.label-schema.name="LogitechMediaServer" \
